@@ -1,6 +1,10 @@
 <div class="container-fluid">
+  <app-toaster-container></app-toaster-container>
   <app-dropdown [select]="region" (ChangeEvent)="getSelectedValue($event)"></app-dropdown>
   <app-dropdown [select]="country" (ChangeEvent)="getSelectedValue($event)"></app-dropdown>
   
   <app-country-detail [columns]='column' [item]="countriesDetails" *ngIf="showHideTable"></app-country-detail>
+  <!-- <div style="height: 900px;"></div> -->
+  <app-custom-dropdown></app-custom-dropdown>
+  <button (click)="showSuccessToaster()">Success</button>
 </div>

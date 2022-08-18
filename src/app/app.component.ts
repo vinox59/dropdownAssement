@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Dropdown, IcountryDetail } from '../app/dropdown';
 import { CountriesService } from '../app/countries.service';
-
+import { ToasterService } from '../app/toaster/toaster.service';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +29,7 @@ export class AppComponent {
   regionSelected;
   countrySelected;
 
-  constructor(private countryService: CountriesService) {
+  constructor(private countryService: CountriesService, private toaster: ToasterService) {
   }
 
   getSelectedValue(event) {
@@ -72,5 +72,9 @@ export class AppComponent {
         this.showHideTable = true;
         break;
     }
+  }
+
+  showSuccessToaster() {
+    this.toaster.show('success', 'Well done!', 'This is a success alert', 10000);
   }
 }
